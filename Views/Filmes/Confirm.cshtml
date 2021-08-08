@@ -1,0 +1,8 @@
+﻿@model Filmes
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <h2><strong>CUIDADO!</strong> Voce esta preste a apagar o filme! Desseja confirmar?</h2>
+
+    <a asp-controller="Filmes" asp-route-Id="@Model.Id" asp-action="Index">Confirma</a><!--Porque nao funciona-->
+    <a asp-controller="Filmes" asp-action="Index">Voltar</a>
+</div>

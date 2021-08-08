@@ -1,0 +1,36 @@
+﻿@model Filmes
+
+<h2>Cadastrar novo Filme</h2>
+<div class="row">
+    <form class="col-md-4" asp-action="Update">
+        <div class="form-group">
+            <label asp-for="Nome" class="control-label" >Nome do Filme:</label> <!--Talvez colocar um Request-->
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Sinopse" class="control-label">Sinopse:</label>
+            <input asp-for="Sinopse" class="form-control" />
+            <span asp-validation-for="Sinopse" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Lancamento" class="control-label">Data de Lançamento</label>
+            <input asp-for="Lancamento" class="form-control" />
+            <span asp-validation-for="Lancamento" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Genero" class="control-label">Genero:</label>
+            <input asp-for="Genero" class="form-control" />
+            <span asp-validation-for="Genero" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Duracao" class="control-label">Duração:</label>
+            <input asp-for="Duracao" class="form-control" />
+            <span asp-validation-for="Duracao" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Create"/>
+            <a class="btn btn-info" asp-controller="Filmes" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+</div>
