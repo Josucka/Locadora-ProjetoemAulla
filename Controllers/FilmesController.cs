@@ -33,6 +33,7 @@ namespace Locadora.Controllers
         {
             SelectService(service);
             ViewBag.ordenar = ordenar;
+            ViewBag.Service = service;
             return View(_service.GetAll(Buscar, ordenar));
         }
         public IActionResult Create()

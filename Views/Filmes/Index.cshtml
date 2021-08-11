@@ -40,10 +40,34 @@
             <th scope="col">@Html.DisplayNameFor(Model => Model.First().Genero)</th>
         </tr>
     </thead>
-    @foreach (Filmes filmes in Model)
+    @if (@ViewBag.Service == "static")
     {
         <tbody>
-            <tr>
+            @foreach (Filmes filmes in Model)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(Model => filmes.Id)</th>
+                    <td>@Html.DisplayFor(Model => filmes.Nome)</td>
+                    <td>@Html.DisplayFor(Model => filmes.Lancamento)</td>
+                    <td>@Html.DisplayFor(Model => filmes.Duracao)</td>
+                    <td>@Html.DisplayFor(Model => filmes.Genero)</td>
+                    <td>
+                        <p>Informação Restrita</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+        <tbody>
+        @foreach (Filmes filmes in Model)
+        {
+            var classe = filmes.Musicas.Count > 0 ? "text-info" : "";
+
+            string consultaQtd = filmes.Musicas.Count > 0 ? $" - {filmes.Musicas.Count}" : "";
+
+            <tr class="@classe">
                 <th scope="row">@Html.DisplayFor(Model => filmes.Id)</th>
                 <td>@Html.DisplayFor(Model => filmes.Nome)</td>
                 <td>@Html.DisplayFor(Model => filmes.Lancamento)</td>
@@ -55,6 +79,8 @@
                     <a asp-controller="Filmes" asp-route-Id="@filmes.Id" asp-action="Confirm">Deletar</a>
                 </td>
             </tr>
+
+        }
         </tbody>
     }
 </table>

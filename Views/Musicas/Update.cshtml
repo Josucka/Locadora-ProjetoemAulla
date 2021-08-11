@@ -1,0 +1,38 @@
+﻿@model Musicas
+
+
+<h2>Editar Muscica do Filme</h2>
+<div class="row">
+    <form class="col-md-4" asp-action="Update">
+        <div class="form-group">
+            <label asp-for="Nome" class="control-label">Nome da Musica</label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Cantor" class="control-label">Cantor(a)</label>
+            <input asp-for="Cantor" class="form-control" />
+            <span asp-validation-for="Cantor" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Lancamento" class="control-label">Data de Lançamento</label>
+            <input asp-for="Lancamento" class="form-control" />
+            <span asp-validation-for="Lancamento" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Genero" class="control-label">Genero</label>
+            <input asp-for="Genero" class="form-control" />
+            <span asp-validation-for="Genero" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="temFilme" class="control-label">Tem no Filme</label>
+            <input asp-for="temFilme" class="form-control" />
+            <span asp-validation-for="temFilme" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Update" />
+            <a class="btn btn-info" asp-controller="Musicas" asp-action="Index">Voltar</a>
+            @*<a class="btn btn-info" asp-controller="Filmes" asp-action="Update">Confirmar</a>*@
+        </div>
+    </form>
+</div>

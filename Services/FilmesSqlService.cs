@@ -1,5 +1,6 @@
 ﻿using Locadora.Data;
 using Locadora.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +15,7 @@ namespace Locadora.Services
         }
         public List<Filmes> GetAll(string Buscar = null, bool ordenar = false)
         {
-            List<Filmes> filme = _context.Filmes.ToList();
+            List<Filmes> filme = _context.Filmes.Include(f => f.Musicas).ToList();
             if (Buscar != null)
             {
                 return filme.FindAll(f => f.Nome.ToLower().Contains(Buscar.ToLower()));
@@ -41,7 +42,7 @@ namespace Locadora.Services
         }
         public Filmes Get(int? Id)
         {
-            return _context.Filmes.Find(Id);
+            return _context.Filmes.Include(f => f.Musicas).FirstOrDefault(f => f.Id == Id);
         }
         public bool Update(Filmes filme)
         {

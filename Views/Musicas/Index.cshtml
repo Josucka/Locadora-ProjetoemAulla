@@ -1,0 +1,62 @@
+﻿@model List<Musicas>
+
+<h3 class="text-center">Lista de Musicas</h3>
+
+<form class="row">
+    <div class="col col-md-4">
+        <input type="text" class="form-control" name="Buscar" placeholder="Buscar.." />
+    </div>
+    @*<div class="col col-md-4">
+        <select name="service" class="form-control">
+            <option value="sql" selected>Dados SQL</option>
+            <option value="static" selected>Dados Estáticos</option>
+        </select>
+    </div>*@
+    <div>
+        <button type="submit" class="btn btn-info">Buscar</button>
+    </div>
+</form>
+<div class="row">
+    <div class="col">
+        @if (ViewBag.ordenar == true)
+        {
+            <a class="btn btn-outline-info" asp-action="Index">DesOrdenar</a>
+        }
+        else
+        {
+            <a href="?ordenar=true" class="btn btn-info">Ordenar</a>
+        }
+    </div>
+</div>
+
+<table class="table table-dark table-striped caption-top">
+
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.First().Id)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.First().Nome)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.First().Lancamento)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.First().temFilme)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.First().Genero)</th>
+        </tr>
+    </thead>
+    @foreach (Musicas music in Model)
+    {
+        <tbody>
+            <tr>
+                <th scope="row">@Html.DisplayFor(Model => music.Id)</th>
+                <td>@Html.DisplayFor(Model => music.Nome)</td>
+                <td>@Html.DisplayFor(Model => music.Lancamento)</td>
+                <td>@Html.DisplayFor(Model => music.temFilme)</td>
+                <td>@Html.DisplayFor(Model => music.Genero)</td>
+                <td>
+                    <a asp-controller="Musicas" asp-route-Id="@music.Id" asp-action="Read">vizualizar</a> |
+                    <a asp-controller="Musicas" asp-route-Id="@music.Id" asp-action="Update">Atualizar</a> |
+                    <a asp-controller="Musicas" asp-route-Id="@music.Id" asp-action="Confirm">Deletar</a>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+<a class="text-center btn btn-group" asp-controller="Musicas" asp-action="Create">Add nova Musica</a>
+

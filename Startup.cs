@@ -26,6 +26,7 @@ namespace Locadora
             services.AddDbContext<LocadoraContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BancoLocadora")));
 
             services.AddTransient<IFilmesService, FilmesSqlService>();
+            services.AddTransient<IMusicasService, MusicasSqlService>();
             services.AddTransient<FilmesSqlService>();
             services.AddTransient<FilmesStaticService>();
             //services.AddTransient<IFilmesService, FilmesStaticService>();

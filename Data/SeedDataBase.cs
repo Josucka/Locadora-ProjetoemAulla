@@ -20,6 +20,10 @@ namespace Locadora.Data
                 {
                     context.Filmes.Add(new Filmes { Nome = "Nome", Sinopse = "Text", Duracao = "Duraçao", Lancamento = new DateTime(), Genero = "Text" });
                 }
+                if (!context.Musicas.Any())
+                {
+                    context.Musicas.Add(new Musicas { Nome = "Nome", Cantor = "Nome", Lancamento = new DateTime(), Genero = "Text" });
+                }
                 context.SaveChanges();
             }
         }

@@ -10,5 +10,6 @@ namespace Locadora.Data
 
         }
         public DbSet<Filmes> Filmes { get; set; }
+        public DbSet<Musicas> Musicas { get; set; } 
     }
 }
