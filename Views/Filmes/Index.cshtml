@@ -65,11 +65,11 @@
         {
             var classe = filmes.Musicas.Count > 0 ? "text-info" : "";
 
-            string consultaQtd = filmes.Musicas.Count > 0 ? $" - {filmes.Musicas.Count}" : "";
+            string MusicQtd = filmes.Musicas.Count > 0 ? $" - {filmes.Musicas.Count}" : "";
 
             <tr class="@classe">
                 <th scope="row">@Html.DisplayFor(Model => filmes.Id)</th>
-                <td>@Html.DisplayFor(Model => filmes.Nome)</td>
+                <td>@Html.DisplayFor(Model => filmes.Nome)<span>@MusicQtd</span></td>
                 <td>@Html.DisplayFor(Model => filmes.Lancamento)</td>
                 <td>@Html.DisplayFor(Model => filmes.Duracao)</td>
                 <td>@Html.DisplayFor(Model => filmes.Genero)</td>

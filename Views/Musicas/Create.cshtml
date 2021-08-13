@@ -25,7 +25,10 @@
         </div>
         <div class="form-group">
             <label asp-for="FilmeId" class="control-label">Filme Relacionado:</label>
-            <input asp-for="FilmeId" class="form-control" />
+            <select asp-for="FilmeId" class="form-control" asp-items="ViewBag.listaFilmes">
+                <option value="">--Filme Correspondente--</option>
+            </select>
+            @*<input asp-for="FilmeId" class="form-control" />*@
             <span asp-validation-for="FilmeId" class="text-danger" />
         </div>
         <div class="form-group">

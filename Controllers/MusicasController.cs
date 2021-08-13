@@ -50,7 +50,7 @@ namespace Locadora.Controllers
         }
         public IActionResult Update(int? Id)
         {
-            var filme = service.GetAll("Id");
+            var filme = service.GetAll();
             ViewBag.listaFilmes = new SelectList(filme, "Id", "Nome");
             return filme != null ? View(filme) : NotFound();
         }
@@ -58,6 +58,9 @@ namespace Locadora.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Musicas musica)
         {
+            var filme = service.GetAll();
+            ViewBag.listaFilmes = new SelectList(filme, "Id", "Nome");
+
             if (!ModelState.IsValid) return View(musica);
             service.Update(musica);
             if (service.Update(musica))
