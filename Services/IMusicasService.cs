@@ -8,7 +8,7 @@ namespace Locadora.Services
         bool Create(Musicas musica);
         bool Delete(int? Id);
         Musicas Get(int? Id);
-        List<Musicas> GetAll(string Buscar = null, bool ordenar = false);
+        List<Musicas> GetAll();
         bool Update(Musicas musica);
     }
 }

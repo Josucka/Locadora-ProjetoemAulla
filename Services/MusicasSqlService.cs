@@ -13,7 +13,7 @@ namespace Locadora.Services
         {
             this._context = context;
         }
-        public List<Musicas> GetAll(string Buscar = null, bool ordenar = false)
+        public List<Musicas> GetAll()
         {
             return _context.Musicas.Include(m => m.temFilme).ToList();
             //List<Filmes> filme = _context.Filmes.ToList();
@@ -62,8 +62,8 @@ namespace Locadora.Services
         {
             try
             {
-                var musica = Get(Id);
-                _context.Musicas.Remove(musica);
+                //var musica = Get(Id);
+                _context.Musicas.Remove(Get(Id));
                 _context.SaveChanges();
                 return true;
             }

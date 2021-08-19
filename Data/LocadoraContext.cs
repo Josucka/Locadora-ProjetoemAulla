@@ -1,9 +1,10 @@
 ﻿using Locadora.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Locadora.Data
 {
-    public class LocadoraContext : DbContext
+    public class LocadoraContext : IdentityDbContext
     {
         public LocadoraContext(DbContextOptions<LocadoraContext> options) : base(options)
         {

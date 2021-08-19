@@ -25,7 +25,7 @@ namespace Locadora.Models
 
         [Required(ErrorMessage ="Campo Obrigatorio")]
         [Display(Name ="Filmes")]
-        public int FilmeId { get; set; }
+        public int? FilmeId { get; set; }
         public Filmes temFilme { get; set; }
     }
 }

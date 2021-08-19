@@ -1,10 +1,12 @@
 ﻿using Locadora.Models;
 using Locadora.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Locadora.Controllers
 {
+    [Authorize]
     public class MusicasController : Controller
     {
         IMusicasService service;
@@ -18,7 +20,7 @@ namespace Locadora.Controllers
         public IActionResult Index(string Buscar, bool ordenar=false)
         {
             ViewBag.ordenar = ordenar;
-            return View(service.GetAll(Buscar, ordenar));
+            return View(service.GetAll());
         }
         public IActionResult Create()
         {

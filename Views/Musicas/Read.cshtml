@@ -4,6 +4,7 @@
 @if (Model == null)
 {
     <h1>@Model.Nome Nao EXISTE</h1>
+    <a asp-action="Index">Voltar</a>
 }
 else
 {
@@ -23,7 +24,7 @@ else
 
         <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Lancamento)</dt>
         <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Lancamento)</dd>
-        
+
         <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Genero)</dt>
         <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Genero)</dd>
     </dl>
